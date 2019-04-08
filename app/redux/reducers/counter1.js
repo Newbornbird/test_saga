@@ -1,4 +1,5 @@
-import {increaseCounter, decreaseCounter, multiplyCounter} from '../../routines';
+import {increaseCounter, decreaseCounter, 
+  multiplyCounter, splitCounter} from '../../routines';
 
 let counter1 = (state = 0, action) => {
   switch (action.type) {
@@ -10,6 +11,9 @@ let counter1 = (state = 0, action) => {
     }
     case multiplyCounter.SUCCESS: {
       return state * 2;
+    }
+    case splitCounter.SUCCESS: {
+      return state / 2;
     }
     default: return state
   }

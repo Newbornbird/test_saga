@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { StyleSheet, View, Text, Button } from 'react-native';
-import {increaseCounter, multiplyCounter} from '../routines';
-import {decreaseCounter} from '../routines';
+import {increaseCounter, multiplyCounter, splitCounter, decreaseCounter} from '../routines';
 
 class Counter1 extends Component {
   render() {
-    let {counter1, increaseCounter, decreaseCounter, multiplyCounter} = this.props
+    let {counter1, increaseCounter, decreaseCounter, 
+      multiplyCounter, splitCounter} = this.props
     return (
       <View style={styles.container}>
         <Text style={styles.text}>
@@ -16,6 +16,7 @@ class Counter1 extends Component {
         <Button title="+1" onPress={() => increaseCounter(500)}/>
         <Button title="-1" onPress={() => decreaseCounter(3000)}/>
         <Button title="x2" onPress={() => multiplyCounter(500)}/>
+        <Button title="/2" onPress={() => splitCounter(500)}/>
       </View>
     )
   }
@@ -45,6 +46,7 @@ let mapDispatchToProps = (dispatch) => {
     increaseCounter: bindActionCreators(increaseCounter, dispatch),
     decreaseCounter: bindActionCreators(decreaseCounter, dispatch),
     multiplyCounter: bindActionCreators(multiplyCounter, dispatch),
+    splitCounter: bindActionCreators(splitCounter, dispatch),
   }
 }
 
